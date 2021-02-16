@@ -7,7 +7,12 @@ public class ChallengeTest {
 
 
   @Test
-  public void shouldSayHello() {
-    assertEquals("Hello, Qualified!", Challenge.sayHello("Qualified"));
+  public void shouldReturnMinString() {
+    assertEquals("aksfaje",
+        Challenge.MinWindowSubstring(new String[] {"ahffaksfajeeubsne", "jefaa"}));
+
+    assertEquals("affhkkse",
+        Challenge.MinWindowSubstring(new String[] {"aaffhkksemckelloe", "fhea"}));
+
   }
 }
