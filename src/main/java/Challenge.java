@@ -5,7 +5,7 @@ class Challenge {
       return "" + number;
     }
 
-    Integer teenNumber = number % 100;
+    final int teenNumber = number % 100;
     if (teenNumber > 10 && teenNumber < 14) {
       return number + "th";
     }
