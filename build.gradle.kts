@@ -26,6 +26,10 @@ dependencies {
     implementation("org.jsoup:jsoup:latest.release")
     implementation("org.dom4j:dom4j:latest.release")
 
+
+    implementation("org.projectlombok:lombok:1.18.16")
+    annotationProcessor("org.projectlombok:lombok:1.18.16")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
         exclude(group = "junit", module = "junit")
