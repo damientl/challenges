@@ -16,15 +16,15 @@ repositories {
 dependencies {
 
     //https://github.com/Codewars/codewars.com/wiki/Language-Java
-    implementation("net.jqwik:jqwik")
+    implementation("net.jqwik:jqwik:latest.release")
     implementation("org.mockito:mockito-core")
     testImplementation("org.assertj:assertj-core")
-    testImplementation("org.assertj:assertj-guava")
-    implementation("org.apache.commons:commons-lang3")
-    implementation("org.apache.commons:commons-math3")
-    implementation("com.google.guava:guava")
-    implementation("org.jsoup:jsoup")
-    implementation("org.dom4j:dom4j")
+    testImplementation("org.assertj:assertj-guava:latest.release")
+    implementation("org.apache.commons:commons-lang3:latest.release")
+    implementation("org.apache.commons:commons-math3:latest.release")
+    implementation("com.google.guava:guava:latest.release")
+    implementation("org.jsoup:jsoup:latest.release")
+    implementation("org.dom4j:dom4j:latest.release")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
