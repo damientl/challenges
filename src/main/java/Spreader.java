@@ -1,4 +1,3 @@
-import org.w3c.dom.Node;
 
 class Spreader {
 
@@ -11,10 +10,23 @@ class Spreader {
   }
 
   public Node rotateRight(Node root) {
-    return root; // Replace with your solution
+    if (root.getLeft() == null) {
+      throw new IllegalArgumentException("cannot rotate to right. No left children");
+    }
+    Node childRight = root.getLeft().getRight();
+
+    Node newRoot = root.getLeft();
+    newRoot.setRight(root);
+
+    root.setLeft(childRight);
+
+    return newRoot;
   }
 
   public Node rotateLeft(Node root) {
+
+
+
     return root; // Replace with your solution
   }
 }
