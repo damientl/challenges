@@ -7,6 +7,7 @@ import java.util.Deque;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.function.BiFunction;
+import java.util.stream.Stream;
 import lombok.Data;
 
 class Calc {
@@ -47,21 +48,12 @@ class Calc {
   }
 
   private Element parse(final String elementStr) {
-
-    final Optional<Operation> op = getOperation(elementStr);
-    if (op.isPresent()) {
-      return op.get();
-    }
-
-    final Optional<Float> value = getFloatValue(elementStr);
-    if (value.isPresent()) {
-      return value.map(Value::new).get();
-    }
-
-    return new InvalidElement();
+    return getOperation(elementStr).orElse(
+            getValue(elementStr).orElse(
+                new InvalidElement()));
   }
 
-  private Optional<Operation> getOperation(final String elementStr) {
+  private Optional<Element> getOperation(final String elementStr) {
     switch (elementStr) {
       case "+":
         return Optional.of(
@@ -78,6 +70,11 @@ class Calc {
       default:
         return Optional.empty();
     }
+  }
+
+  private Optional<Element> getValue(final String elementStr) {
+    return getFloatValue(elementStr)
+        .map(Value::new);
   }
 
   private Optional<Float> getFloatValue(final String elementStr) {
