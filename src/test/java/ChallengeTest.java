@@ -8,6 +8,6 @@ public class ChallengeTest {
 
   @Test
   public void shouldSayHello() {
-    assertEquals("Hello, Qualified!", Spreader.sayHello("Qualified"));
+    assertEquals("Hello, Qualified!", Challenge.sayHello("Qualified"));
   }
 }
