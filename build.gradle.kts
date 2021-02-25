@@ -15,8 +15,6 @@ repositories {
 
 dependencies {
 
-    //https://github.com/Codewars/codewars.com/wiki/Language-Java
-    implementation("net.jqwik:jqwik:latest.release")
     implementation("org.mockito:mockito-core")
     testImplementation("org.assertj:assertj-core")
     testImplementation("org.assertj:assertj-guava:latest.release")
