@@ -1,3 +1,6 @@
+import java.util.Comparator;
+import java.util.List;
+import org.apache.commons.math3.util.Pair;
 
 class Challenge {
 
@@ -7,6 +10,29 @@ class Challenge {
 
     // but you need to return the correct value in order to pass the challenge
     return "Hello, " + name + '!';
+  }
+
+  public Double pointToTrees(List<Double> angles, Double aperture) {
+    return angles.stream().map(
+            a -> {
+              Integer amountOfTrees = findTrees(a, a + aperture, angles);
+              return new Pair<>(a, amountOfTrees);
+            }
+        ).max(Comparator.comparingInt(Pair::getValue))
+        .map(Pair::getKey)
+        .orElse(0D);
+  }
+
+  private Integer findTrees(Double lowerBound, Double upperBound, List<Double> angles) {
+    return angles.stream()
+        .filter(a ->
+            (a >= lowerBound && a <= upperBound) //350 - 20
+                ||
+                (upperBound > 360 && a >= 0 && a <= upperBound % 360)
+        )
+        .map(a -> 1)
+        .reduce(Integer::sum)
+        .orElse(0);
   }
 }
 
